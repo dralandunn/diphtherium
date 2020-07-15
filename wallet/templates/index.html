@@ -1,0 +1,29 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="w3-container w3-green">
+  <h1> Overview</h1>
+  <table class="w3-table">
+  <h3>Balances</h3>
+    <tr>
+      <td>Available</td>
+      <td>{{available}}</td
+    </tr>
+    <tr>
+      <td>Pending</td>
+      <td>{{pending}}</td>
+    </tr>
+  <tr>
+    <td>TOTAL</td>
+    <td>{{balance}}</td>
+  </tr>
+</table>
+
+</div>
+ <div class="w3-container w3-green">
+ <h3>Recent Transactions</h3>
+ </div>
+ 
+ {% endblock %}

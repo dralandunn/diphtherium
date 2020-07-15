@@ -1,0 +1,40 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+
+{% block content %}
+  <div class="w3-card-4">
+    <div class="w3-container w3-green">
+      <h2 class="w3-text-white">Send Payment</h2>
+    </div>
+
+    <form action= "http://192.168.1.12:5000/send" class="w3-container" method="POST">
+      <p>
+	  
+      <input class="w3-input w3-border w3-round-large" type="text"  name="payee">
+	  <label >Pay to:</label></p>
+	  <div class="tooltip"><img src="{{url_for('static', filename='help.png')}}" />
+	     <span class="tooltiptext">Bitcoin address of payee</span>
+	  </div>
+      <p>
+      <input class="w3-input w3-border w3-round-large" type="text" name="label">
+      <label >Label:</label></p>
+      <p><div class="w3-twothird">  
+      <input class="w3-input w3-border w3-round-large" type="text" name="amount">
+      <label>Amount:</label></div></p>
+      <p><div class="w3-third">  
+      <select class="w3-select w3-border w3-round-large" name="unit">
+        <option value="btc">BTC</option>
+        <option value="mbtc">mBTC</option>
+        <option value="bit">uBTC (bits)</option>
+        <option value="sat">Satoshi (sat)</option>
+      </select></div></p>
+      <p>
+      <input class="w3-select w3-border w3-round-large" name="fee">
+      <label>Fee:</label></p>
+      <p>
+	  <input type="submit" class="w3-btn w3-blue-grey" value="Submit"></button></p>
+    </form>
+	
+  </div>
+{% endblock %}
