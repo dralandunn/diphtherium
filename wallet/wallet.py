@@ -236,7 +236,7 @@ def receive():
     def getPayments():
         #Returns all requests as a list of tuples
         # create a connection object
-        dbPath = 'C:\Block_Wallet\wallet.db'
+        dbPath = 'wallet.db'
         conn = create_connection(dbPath)
 
         # create a cursor object
@@ -268,7 +268,7 @@ def receive():
         # Req is a tuple
         
         # create a connection object
-        dbPath = 'C:\Block_Wallet\wallet.db'
+        dbPath = '\wallet.db'
         conn = create_connection(dbPath)
 
         # create a cursor object

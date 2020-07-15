@@ -152,7 +152,7 @@ def new_transaction():
         # mempool table of node.db
         
         # create a connection db object
-        dbPath = 'C:/Block_Node/node.db'
+        dbPath = 'node.db'
         conn = create_connection(dbPath)
 
         # create a cursor object
