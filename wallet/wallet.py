@@ -16,7 +16,7 @@ from flask import Flask, render_template, redirect, request
 
 # The node with which the wallet interacts, there can be multiple
 # such nodes as well.
-CONNECTED_NODE_ADDRESS = "http://192.168.1.12:8000"
+CONNECTED_NODE_ADDRESS = "http://192.168.1.19:8000"
 
 posts = []
 
@@ -131,18 +131,18 @@ def toSatoshi(amount, unit):
     # trap any non-numeric input
     try:
         val = float(amount)
-    except ValueError
+    except ValueError:
         print("Error in amount")
 
     if unit=="btc":
-            return int(val*100000000)
-        elif unit=="mbtc":
-            return = int(val*100000)
-        elif unit=="ubtc":
-            return = int(val*100)
-        else:
-            # No conversion as already in satoshi
-            return = int(val)
+        return int(val*100000000)
+    elif unit=="mbtc":
+        return int(val*100000)
+    elif unit=="ubtc":
+        return int(val*100)
+    else:
+        # No conversion as already in satoshi
+        return int(val)
 
 # NOT USED---------------------------------------------------------
 def displayTime(timestamp):
@@ -181,8 +181,8 @@ def send():
         #this block is only entered when the form is submitted
 
         # get current Unix time
-        time = time.time()
-        
+        timestamp = time.time()
+
         # Store POST data in variables
         payee = request.form.get('payee')
         label = request.form.get('label')
@@ -191,15 +191,15 @@ def send():
         fee = request.form.get('fee')
 
         # Convert ammount to satoshi
-        satoshi = toSatoshi(amount, unut)
+        satoshi = toSatoshi(amount, unit)
         
         # Build Transaction in dictionary
-        TransData = {'timestamp':time,
+        TransData = {'timestamp':timestamp,
                      'payee':payee,
                      'label':label,
                      'amount':satoshi,
                      'fee':fee}
-        print(displayTime(time)
+        print(displayTime(time))
         
         # Convert dictionary to JSON Object for transmission
         TransJSON = json.dumps(TransData)
@@ -268,7 +268,7 @@ def receive():
         # Req is a tuple
         
         # create a connection object
-        dbPath = '\wallet.db'
+        dbPath = 'wallet.db'
         conn = create_connection(dbPath)
 
         # create a cursor object

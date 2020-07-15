@@ -392,8 +392,6 @@ def verify_and_add_block():
     return "Block added to the chain", 201
 
 
-
-
 def consensus():
     """
     Our naive consnsus algorithm. If a longer valid chain is
